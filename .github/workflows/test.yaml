@@ -14,3 +14,7 @@ jobs:
       - run: gh api -X GET /rate_limit -q .resources.core.remaining | tee -a $GITHUB_STEP_SUMMARY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - run: gh api -X GET /rate_limit -q .resources.core.remaining | tee -a $GITHUB_STEP_SUMMARY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
