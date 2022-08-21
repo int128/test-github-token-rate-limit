@@ -11,6 +11,6 @@ jobs:
   show-rate-limit:
     runs-on: ubuntu-latest
     steps:
-      - run: gh api -X GET /rate_limit -q .resources.core.remaining >> $GITHUB_STEP_SUMMARY
+      - run: gh api -X GET /rate_limit -q .resources.core.remaining | tee -a $GITHUB_STEP_SUMMARY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
