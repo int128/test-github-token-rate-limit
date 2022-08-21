@@ -23,6 +23,7 @@ jobs:
         index: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: gh api -X GET /rate_limit -q .resources.core.remaining | tee -a $GITHUB_STEP_SUMMARY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
